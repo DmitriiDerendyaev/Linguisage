@@ -1,8 +1,9 @@
 package com.example.Imagenius.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "word_user_image")

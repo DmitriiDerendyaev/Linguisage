@@ -1,9 +1,9 @@
 package com.example.Imagenius.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
