@@ -30,9 +30,18 @@ public class Users {
     @Column(name = "age")
     private Integer age;
 
+    @Column(name = "batch_size")
+    private Integer batchSize;
+
     @Column(name = "registered_at")
     private LocalDate registeredAt;
 
+    @Column(name = "theme_mode")
+    private String themeMode;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<WordMeaning> wordMeanings;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserLiterature> userLiteratures;
 }

@@ -13,6 +13,7 @@ import java.util.List;
 public class WordMeaning {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "word_meaning_id")
     private Long wordMeaningId;
 
@@ -21,6 +22,9 @@ public class WordMeaning {
 
     @Column(name = "status")
     private String status;
+
+    @Column(name = "source")
+    private String source;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
