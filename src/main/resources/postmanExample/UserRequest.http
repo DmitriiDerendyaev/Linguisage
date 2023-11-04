@@ -1,0 +1,8 @@
+POST http://localhost:8080/users/add
+{
+  "email": "user@example.com",
+  "username": "newuser",
+  "passwordHash": "password123",
+  "age": 30,
+  "registeredAt": "2023-10-16"
+}

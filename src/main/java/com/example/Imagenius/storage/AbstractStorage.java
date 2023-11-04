@@ -5,9 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractStorage<T, ID> {
+public abstract class AbstractStorage<T, ID> implements StorageCRUD<T, ID>{
 
-    private final JpaRepository<T, ID> repository;
+    protected final JpaRepository<T, ID> repository;
 
     public AbstractStorage(JpaRepository<T, ID> repository) {
         this.repository = repository;

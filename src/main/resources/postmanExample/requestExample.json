@@ -1,0 +1,222 @@
+{
+  "info": {
+    "_postman_id": "YOUR_COLLECTION_ID",
+    "name": "Imagenius API",
+    "description": "Collection of API requests for Imagenius"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get User by ID",
+          "request": {
+            "url": "http://localhost:8080/users/1",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "url": "http://localhost:8080/users/all",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Add User",
+          "request": {
+            "url": "http://localhost:8080/users/add",
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"user@example.com\",\"username\": \"newuser\",\"passwordHash\": \"password123\",\"age\": 30,\"registeredAt\": \"2023-10-16\"}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "url": "http://localhost:8080/users/update",
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"userId\": 1,\"email\": \"updateduser@example.com\",\"username\": \"updatedusername\",\"passwordHash\": \"updatedpassword123\",\"age\": 25,\"registeredAt\": \"2023-10-17\"}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "url": "http://localhost:8080/users/delete/1",
+            "method": "DELETE"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WordMeaning",
+      "item": [
+        {
+          "name": "Get Word Meaning by ID",
+          "request": {
+            "url": "http://localhost:8080/wordMeanings/1",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Word Meanings",
+          "request": {
+            "url": "http://localhost:8080/wordMeanings/all",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Add Word Meaning",
+          "request": {
+            "url": "http://localhost:8080/wordMeanings/add",
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"content\": \"example\",\"status\": \"active\",\"user\": {\"userId\": 1}}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Update Word Meaning",
+          "request": {
+            "url": "http://localhost:8080/wordMeanings/update",
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"wordMeaningId\": 1,\"content\": \"updatedexample\",\"status\": \"inactive\",\"user\": {\"userId\": 2}}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete Word Meaning",
+          "request": {
+            "url": "http://localhost:8080/wordMeanings/delete/1",
+            "method": "DELETE"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WordUserImage",
+      "item": [
+        {
+          "name": "Get Word User Image by ID",
+          "request": {
+            "url": "http://localhost:8080/wordUserImages/1",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Word User Images",
+          "request": {
+            "url": "http://localhost:8080/wordUserImages/all",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Add Word User Image",
+          "request": {
+            "url": "http://localhost:8080/wordUserImages/add",
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"content\": \"imagebase64data\",\"wordMeaning\": {\"wordMeaningId\": 1}}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Update Word User Image",
+          "request": {
+            "url": "http://localhost:8080/wordUserImages/update",
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"wordUserImageId\": 1,\"content\": \"updatedimagebase64data\",\"wordMeaning\": {\"wordMeaningId\": 2}}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete Word User Image",
+          "request": {
+            "url": "http://localhost:8080/wordUserImages/delete/1",
+            "method": "DELETE"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "UserAnswer",
+      "item": [
+        {
+          "name": "Get User Answer by ID",
+          "request": {
+            "url": "http://localhost:8080/userAnswers/1",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All User Answers",
+          "request": {
+            "url": "http://localhost:8080/userAnswers/all",
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "name": "Add User Answer",
+          "request": {
+            "url": "http://localhost:8080/userAnswers/add",
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"wordMeaning\": {\"wordMeaningId\": 1},\"datetime\": \"2023-10-16\",\"isRight\": true,\"confidence\": 0.95}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Update User Answer",
+          "request": {
+            "url": "http://localhost:8080/userAnswers/update",
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"answerId\": 1,\"wordMeaning\": {\"wordMeaningId\": 2},\"datetime\": \"2023-10-17\",\"isRight\": false,\"confidence\": 0.75}"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete User Answer",
+          "request": {
+            "url": "http://localhost:8080/userAnswers/delete/1",
+            "method": "DELETE"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
+}

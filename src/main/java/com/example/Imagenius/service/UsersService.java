@@ -2,17 +2,23 @@ package com.example.Imagenius.service;
 
 import com.example.Imagenius.entity.Users;
 import com.example.Imagenius.storage.UsersStorage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsersService {
 
+    private final BCryptPasswordEncoder passwordEncoder;
+
     private final UsersStorage usersStorage;
 
-    public UsersService(UsersStorage usersStorage) {
+    public UsersService(UsersStorage usersStorage, BCryptPasswordEncoder passwordEncoder) {
         this.usersStorage = usersStorage;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public Users findById(Long userId) {
@@ -24,6 +30,8 @@ public class UsersService {
     }
 
     public Users save(Users user) {
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
         return usersStorage.save(user);
     }
 
@@ -33,5 +41,9 @@ public class UsersService {
 
     public void delete(Long userId) {
         usersStorage.delete(userId);
+    }
+
+    public Optional<Users> findByEmail(String email) {
+        return usersStorage.findByEmail(email);
     }
 }
